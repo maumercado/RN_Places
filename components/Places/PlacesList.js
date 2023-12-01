@@ -2,8 +2,7 @@ import { FlatList, View, Text, StyleSheet } from 'react-native'
 
 import PlaceItem from './PlaceItem'
 
-function PlacesList ({places}) {
-
+function PlacesList ({ places }) {
   if (!places || places.length === 0) {
     return (
       <View style={styles.fallbackContainer}>
@@ -13,9 +12,8 @@ function PlacesList ({places}) {
   }
 
   return (
-    <FlatList data={places} key={(item) => item.id} renderItem={({item}) => <PlaceItem place={item} />} />
+    <FlatList data={places} key={(item) => item.id} renderItem={({ item }) => <PlaceItem place={item} />} />
   )
-
 }
 
 const styles = StyleSheet.create({
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   fallbackText: {
-    fontSize: 16,
+    fontSize: 16
   }
 })
 
