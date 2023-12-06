@@ -1,3 +1,4 @@
+import { View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -31,12 +32,14 @@ export default function App () {
               title: 'Your Favorite Places',
               headerRight: ({ tintColor }) => {
                 return (
-                  <IconButton
-                    icon='add' color={tintColor} size={24}
-                    onPress={() => {
-                      navigation.navigate('AddPlace')
-                    }}
-                  />
+                  <View>
+                    <IconButton
+                      icon='add' color={tintColor} size={24}
+                      onPress={() => {
+                        navigation.navigate('AddPlace')
+                      }}
+                    />
+                  </View>
                 )
               }
             })}

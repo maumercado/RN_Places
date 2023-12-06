@@ -1,12 +1,12 @@
-import crypto from 'node:crypto'
+import * as Crypto from 'expo-crypto';
 
 class Place {
-  constructor (title, imageUri, address, location) {
-    this.id = crypto.randomUUID()
+  constructor (title, imageUri, location) {
+    this.id = Crypto.randomUUID()
     this.title = title
     this.imageUri = imageUri
-    this.address = address
-    this.location = location // {lat: ..., lng: ...}
+    this.address = location.address
+    this.location = { lat: location.lat, lng: location.lng }
   }
 }
 
