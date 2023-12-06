@@ -56,11 +56,38 @@ export function fetchPlaces () {
             places.push(new Place(
               row.title,
               row.imageUri,
-              { address: row.address, lat:row.lat, lng: row.lng },
+              { address: row.address, lat: row.lat, lng: row.lng },
               row.id
             ))
           }
           resolve(places)
+        },
+        (_, err) => reject(err)
+      )
+    })
+  })
+}
+
+export function fetchPlaceDetails (id) {
+  return new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        'SELECT * FROM places WHERE id = ?',
+        [id],
+        (_, result) => {
+          if (result.rows.length === 0) {
+            reject(new Error('Place not found'))
+          } else {
+            console.log(result.rows.item(0))
+            const row = result.rows.item(0)
+            const place = new Place(
+              row.title,
+              row.imageUri,
+              { address: row.address, lat: row.lat, lng: row.lng },
+              row.id
+            )
+            resolve(place)
+          }
         },
         (_, err) => reject(err)
       )

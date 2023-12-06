@@ -8,7 +8,7 @@ function AllPlaces () {
   const isFocused = useIsFocused()
 
   useEffect(() => {
-    async function loadPlaces() {
+    async function loadPlaces () {
       const result = await fetchPlaces()
       setLoadedPlaces(result)
     }
