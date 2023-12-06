@@ -10,6 +10,7 @@ import { init } from './util/database'
 
 import AllPlaces from './screens/AllPlaces'
 import AddPlace from './screens/AddPlace'
+import PlaceDetails from './screens/PlaceDetails'
 import IconButton from './components/ui/IconButton'
 import { Colors } from './constants/colors'
 import Map from './screens/Map'
@@ -83,6 +84,7 @@ export default function App () {
             />
             <Stack.Screen title='Add New Place' name='AddPlace' component={AddPlace} />
             <Stack.Screen name='Map' component={Map} />
+            <Stack.Screen name='PlaceDetails' component={PlaceDetails} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
