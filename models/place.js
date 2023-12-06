@@ -1,8 +1,6 @@
-import * as Crypto from 'expo-crypto'
-
 class Place {
-  constructor (title, imageUri, location) {
-    this.id = Crypto.randomUUID()
+  constructor (title, imageUri, location, id) {
+    this.id = id
     this.title = title
     this.imageUri = imageUri
     this.address = location.address

@@ -19,7 +19,7 @@ function PlacesList ({ places }) {
 
 const styles = StyleSheet.create({
   list: {
-    margin: 24,
+    margin: 24
   },
   fallbackContainer: {
     flex: 1,
