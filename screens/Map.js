@@ -59,7 +59,7 @@ function Map ({ navigation }) {
               longitude: selectedLocation.lng
             }
           }
-          />
+                            />
       }
     </MapView>
   )
