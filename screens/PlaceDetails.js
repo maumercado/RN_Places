@@ -7,8 +7,12 @@ import { fetchPlaceDetails } from '../util/database'
 function PlaceDetails ({ route, navigation }) {
   const [fetchedPlace, setFetchedPlace] = useState()
   const { placeId: selectedPlaceId } = route.params
+
   function showOnMapHandler () {
-    navigation.navigate('Map')
+    navigation.navigate('Map', {
+      initialLat: fetchedPlace.location.lat,
+      initialLng: fetchedPlace.location.lng
+    })
   }
 
   useEffect(() => {
@@ -32,7 +36,9 @@ function PlaceDetails ({ route, navigation }) {
 
   return (
     <ScrollView>
-      <Image style={styles.image} source={{ uri: fetchedPlace.imageUri }} />
+      <View style={styles.imagePreviewContainer}>
+        <Image style={styles.image} source={{ uri: fetchedPlace.imageUri }} />
+      </View>
       <View style={styles.locationContainer}>
         <View style={styles.addressContainer}>
           <Text style={styles.address}>{fetchedPlace.address}</Text>
@@ -49,11 +55,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  imagePreviewContainer: {
+    flex: 1,
+    padding: 20,
+    borderRadius: 4
+  },
   image: {
     width: '100%',
     minHeight: 300,
-    height: '35%'
-
+    height: '35%',
+    borderRadius: 4
   },
   locationContainer: {
     justifyContent: 'center',

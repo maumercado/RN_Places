@@ -78,7 +78,6 @@ export function fetchPlaceDetails (id) {
           if (result.rows.length === 0) {
             reject(new Error('Place not found'))
           } else {
-            console.log(result.rows.item(0))
             const row = result.rows.item(0)
             const place = new Place(
               row.title,
